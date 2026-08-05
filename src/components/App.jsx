@@ -47,6 +47,26 @@ function handleDeleteToy(id) {
   });
 }
 
+// Increase a toy's likes
+function handleLikeToy(id, currentLikes) {
+  fetch(`http://localhost:3001/toys/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      likes: currentLikes + 1,
+    }),
+  })
+    .then((response) => response.json())
+    .then((updatedToy) => {
+      const updatedToys = toys.map((toy) =>
+        toy.id === updatedToy.id ? updatedToy : toy
+      );
+      setToys(updatedToys);
+    });
+}
+
   return (
     <>
       <Header />
@@ -57,6 +77,7 @@ function handleDeleteToy(id) {
       {/* Pass toys to ToyContainer */}
       <ToyContainer toys={toys}
       handleDeleteToy={handleDeleteToy}
+      handleLikeToy={handleLikeToy}
       />
     </>
   );
