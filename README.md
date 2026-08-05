@@ -2,14 +2,14 @@
 
 ## Description
 
-Toy Tales is a React application that allows users to manage a collection of toys. Users can view toys, add new toys, like existing toys, and donate (delete) toys.
+Toy Tales is a React application that allows users to manage a collection of toys. Users can view toys, add new toys, like existing toys, and donate toys.
 
 ## Features
 
 - View all toys on page load
 - Add new toys
 - Increase toy likes
-- Donate (delete) toys
+- Donate toys which also deletes them
 - Persistent data using a backend API
 
 ## Technologies Used
