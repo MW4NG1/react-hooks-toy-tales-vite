@@ -8,7 +8,7 @@ function ToyCard({ toy }) {
       {/* Toy image */}
       <img src={toy.image} alt={toy.name} className="toy-avatar" />
       {/* Toy likes */}
-      <p>{toy.likes} Likes</p>
+      <p>{toy.likes} Likes </p>
       {/* Buttons will be implemented later */}
       <button className="like-btn">Like {"<3"}</button>
       <button className="del-btn">Donate to GoodWill</button>
