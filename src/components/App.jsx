@@ -38,34 +38,34 @@ function App() {
   }
 
   // Delete a toy from the database and state
-function handleDeleteToy(id) {
-  fetch(`http://localhost:3001/toys/${id}`, {
-    method: "DELETE",
-  }).then(() => {
-    const updatedToys = toys.filter((toy) => toy.id !== id);
-    setToys(updatedToys);
-  });
-}
-
-// Increase a toy's likes
-function handleLikeToy(id, currentLikes) {
-  fetch(`http://localhost:3001/toys/${id}`, {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      likes: currentLikes + 1,
-    }),
-  })
-    .then((response) => response.json())
-    .then((updatedToy) => {
-      const updatedToys = toys.map((toy) =>
-        toy.id === updatedToy.id ? updatedToy : toy
-      );
+  function handleDeleteToy(id) {
+    fetch(`http://localhost:3001/toys/${id}`, {
+      method: "DELETE",
+    }).then(() => {
+      const updatedToys = toys.filter((toy) => toy.id !== id);
       setToys(updatedToys);
     });
-}
+  }
+
+  // Increase a toy's likes
+  function handleLikeToy(id, currentLikes) {
+    fetch(`http://localhost:3001/toys/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        likes: currentLikes + 1,
+      }),
+    })
+      .then((response) => response.json())
+      .then((updatedToy) => {
+        const updatedToys = toys.map((toy) =>
+          toy.id === updatedToy.id ? updatedToy : toy,
+        );
+        setToys(updatedToys);
+      });
+  }
 
   return (
     <>
@@ -75,9 +75,10 @@ function handleLikeToy(id, currentLikes) {
         <button onClick={handleClick}>Add a Toy</button>
       </div>
       {/* Pass toys to ToyContainer */}
-      <ToyContainer toys={toys}
-      handleDeleteToy={handleDeleteToy}
-      handleLikeToy={handleLikeToy}
+      <ToyContainer
+        toys={toys}
+        handleDeleteToy={handleDeleteToy}
+        handleLikeToy={handleLikeToy}
       />
     </>
   );

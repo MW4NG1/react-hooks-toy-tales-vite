@@ -5,11 +5,12 @@ function ToyContainer({ toys, handleDeleteToy, handleLikeToy }) {
   return (
     <div id="toy-collection">
       {toys.map((toy) => (
-        <ToyCard 
-        key={toy.id} 
-        toy={toy}
-        handleDeleteToy={handleDeleteToy}
-        handleLikeToy={handleLikeToy} />
+        <ToyCard
+          key={toy.id}
+          toy={toy}
+          handleDeleteToy={handleDeleteToy}
+          handleLikeToy={handleLikeToy}
+        />
       ))}
     </div>
   );

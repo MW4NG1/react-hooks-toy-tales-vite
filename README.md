@@ -22,17 +22,16 @@ Toy Tales is a React application that allows users to manage a collection of toy
 ## Installation
 
 1. Clone the repository
-git clone <repository-url>
-
+   git clone <repository-url>
 
 2. Install dependencies
-npm install
+   npm install
 
 3. Start the backend
-npm run server
+   npm run server
 
 4. Start the React app
-npm run dev
+   npm run dev
 
 ## Website Screenshot
 
