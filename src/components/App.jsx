@@ -55,7 +55,9 @@ function handleDeleteToy(id) {
         <button onClick={handleClick}>Add a Toy</button>
       </div>
       {/* Pass toys to ToyContainer */}
-      <ToyContainer toys={toys} />
+      <ToyContainer toys={toys}
+      handleDeleteToy={handleDeleteToy}
+      />
     </>
   );
 }
